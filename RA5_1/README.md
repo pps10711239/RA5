@@ -39,7 +39,7 @@ Para esta tarea se configuró una canalización de integración continua (CI) pa
 
 Se utilizó un `Jenkinsfile` como base de la canalización. Este archivo define las etapas necesarias para clonar el código desde GitHub y ejecutar las pruebas unitarias mediante `unittest`.
 
-```groovy
+
 pipeline {
     agent any
 
@@ -172,7 +172,7 @@ La pipeline se ejecutó automáticamente tras un push al repositorio, completand
 1. **Construcción de imagen Docker**:
    ```bash
    docker build -t calc-image .
-   ```
+   
    - Descargada imagen base `python:3.9-slim`
    - Instaladas dependencias (pytest) correctamente
    - Imagen creada con ID: `4c2ae7e546ab`
