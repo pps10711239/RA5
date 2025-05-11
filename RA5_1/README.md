@@ -123,7 +123,7 @@ Además, se puede consultar el log completo del pipeline en:
 Se creó un nuevo proyecto Jenkins específico para la pipeline Docker con las siguientes configuraciones clave:
 
 **Figura 12 –** Configuración del proyecto con trigger GitHub  
-![Configuración del trigger GitHub](Captura12.png)
+![Configuración del trigger GitHub](assets/Captura12.png)
 
 - Activado **GitHub hook trigger for GITScm polling** para ejecuciones automáticas
 - Definición de pipeline desde SCM (Git)
@@ -132,7 +132,7 @@ Se creó un nuevo proyecto Jenkins específico para la pipeline Docker con las s
 - Ruta del Jenkinsfile: `jenkinsfile.docker`
 
 **Figura 13 –** Especificación del Jenkinsfile.docker  
-![Configuración del script path](Captura13.png)
+![Configuración del script path](assets/Captura13.png)
 
 ---
 
@@ -141,7 +141,7 @@ Se creó un nuevo proyecto Jenkins específico para la pipeline Docker con las s
 La pipeline se ejecutó automáticamente tras un push al repositorio, completando todas las etapas definidas:
 
 **Figura 14 –** Vista general de ejecuciones  
-![Historial de ejecuciones](Captura14.png)
+![Historial de ejecuciones](assets/Captura14.png)
 
 - **Build #18**: Ejecutada el 9 de mayo de 2025
 - **Duración**: 21 segundos
@@ -152,7 +152,7 @@ La pipeline se ejecutó automáticamente tras un push al repositorio, completand
 ### Detalles de la ejecución
 
 **Figura 15 –** Gráfico de tiempos por etapa  
-![Tiempos de ejecución por etapa](Captura15.png)
+![Tiempos de ejecución por etapa](assets/Captura15.png)
 
 | Etapa | Duración |
 |-------|----------|
