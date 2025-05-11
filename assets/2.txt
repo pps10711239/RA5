@@ -1,0 +1,67 @@
+Started by GitHub push by pps10711239
+Obtained Jenkinsfile from git https://github.com/pps10711239/mi-proyecto-calculadora.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/calculadora-python
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+The recommended git tool is: git
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/calculadora-python/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/pps10711239/mi-proyecto-calculadora.git # timeout=10
+Fetching upstream changes from https://github.com/pps10711239/mi-proyecto-calculadora.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.5'
+ > git fetch --tags --force --progress -- https://github.com/pps10711239/mi-proyecto-calculadora.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision c6b525e0509bd58b0197ebcf83baf3669876bc7e (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c6b525e0509bd58b0197ebcf83baf3669876bc7e # timeout=10
+Commit message: "Trigger CI"
+ > git rev-list --no-walk 646bab2014baabe1ea2215da440f012c66d9c96c # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Clonar código)
+[Pipeline] git
+The recommended git tool is: git
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/calculadora-python/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/pps10711239/mi-proyecto-calculadora.git # timeout=10
+Fetching upstream changes from https://github.com/pps10711239/mi-proyecto-calculadora.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.5'
+ > git fetch --tags --force --progress -- https://github.com/pps10711239/mi-proyecto-calculadora.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision c6b525e0509bd58b0197ebcf83baf3669876bc7e (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c6b525e0509bd58b0197ebcf83baf3669876bc7e # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D main # timeout=10
+ > git checkout -b main c6b525e0509bd58b0197ebcf83baf3669876bc7e # timeout=10
+Commit message: "Trigger CI"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Ejecutar test)
+[Pipeline] sh
++ python3 -m unittest test_calculator.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

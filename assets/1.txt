@@ -1,0 +1,45 @@
+Started by user admin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/calculadora-python
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Clonar código)
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/pps10711239/mi-proyecto-calculadora.git
+ > git init /var/jenkins_home/workspace/calculadora-python # timeout=10
+Fetching upstream changes from https://github.com/pps10711239/mi-proyecto-calculadora.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.5'
+ > git fetch --tags --force --progress -- https://github.com/pps10711239/mi-proyecto-calculadora.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/pps10711239/mi-proyecto-calculadora.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 646bab2014baabe1ea2215da440f012c66d9c96c (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 646bab2014baabe1ea2215da440f012c66d9c96c # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b main 646bab2014baabe1ea2215da440f012c66d9c96c # timeout=10
+Commit message: "Proyecto de calculadora con pruebas unitarias"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Ejecutar test)
+[Pipeline] sh
++ python3 -m unittest test_calculator.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
