@@ -45,7 +45,7 @@ Y aquí se ve que está todo OK con la versión 1.8.1 instalada:
 
 ## Archivos del proyecto
 
-### `main.tf` [`main.tf`](assets/main.tf)
+### [`main.tf`](assets/main.tf)
 
 Archivo de Terraform que ejecuta un simple `vagrant up`. Con eso arranca la VM y el resto lo hace Vagrant + Ansible.
 
@@ -59,7 +59,7 @@ resource "null_resource" "provisionar_vm" {
 
 ---
 
-### `Vagrantfile` [`Vagrantfile`](assets/Vagrantfile)
+###  [`Vagrantfile`](assets/Vagrantfile)
 
 Aquí se define la VM con Ubuntu 22.04, 2 CPUs, 2 GB de RAM y se le pasa el playbook de Ansible para que se configure sola.
 
@@ -71,7 +71,7 @@ ansible.playbook = "/vagrant/servidor.yml"
 
 ---
 
-### `servidor.yml` [`servidor.yml`](assets/servidor.yml)
+### [`servidor.yml`](assets/servidor.yml)
 
 Este es el playbook que se ejecuta dentro de la VM. Hace lo siguiente:
 
