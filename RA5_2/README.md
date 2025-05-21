@@ -142,7 +142,7 @@ Ansible rocks
 
 ---
 
-### 🤎 Verificación desde el playbook
+### Verificación desde el playbook
 
 El propio playbook ejecuta un `curl` y muestra el resultado con un `debug`:
 
