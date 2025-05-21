@@ -1,6 +1,7 @@
-# RA5.2 – IaC: Infrastructure as Code 🧰🚀
+# RA5.2 – IaC: Infrastructure as Code 🛠️🚀
 
 ## Índice
+
 1. [Instalación de Terraform](#instalación-de-terraform)
 2. [Archivos del proyecto](#archivos-del-proyecto)
 3. [Cómo se ejecuta todo esto](#cómo-se-ejecuta-todo-esto)
@@ -10,19 +11,20 @@
 
 ## Instalación de Terraform
 
-Para no estar descargando y configurando Terraform a mano, me hice un script en PowerShell: [`instalar_terraform.ps1`](assets/instalar_terraform.ps1).  
+Para no estar descargando y configurando Terraform a mano, me hice un script en PowerShell: [`instalar_terraform.ps1`](assets/instalar_terraform.ps1).
 Este script hace todo por ti:
 
-- Crea una carpeta `C:\Terraform`.
-- Descarga Terraform desde la web oficial.
-- Lo descomprime.
-- Y lo mete en el PATH del sistema para que puedas usarlo desde cualquier terminal.
+* Crea una carpeta `C:\Terraform`.
+* Descarga Terraform desde la web oficial.
+* Lo descomprime.
+* Y lo mete en el PATH del sistema para que puedas usarlo desde cualquier terminal.
 
 Así de cómodo 😎
 
 ### Aquí se ve la instalación en marcha:
 
 ![Figura 1. Instalación de Terraform en Windows](assets/Captura1.png)
+**Figura 1. Instalación de Terraform en Windows**
 
 ---
 
@@ -30,13 +32,14 @@ Así de cómodo 😎
 
 Después de cerrar y volver a abrir PowerShell, ejecuté:
 
-
+```bash
 terraform -v
-
+```
 
 Y aquí se ve que está todo OK con la versión 1.8.1 instalada:
 
 ![Figura 2. Terraform correctamente instalado](assets/Captura2.png)
+**Figura 2. Terraform correctamente instalado**
 
 ---
 
@@ -46,13 +49,13 @@ Y aquí se ve que está todo OK con la versión 1.8.1 instalada:
 
 Archivo de Terraform que ejecuta un simple `vagrant up`. Con eso arranca la VM y el resto lo hace Vagrant + Ansible.
 
-
+```hcl
 resource "null_resource" "provisionar_vm" {
   provisioner "local-exec" {
     command = "vagrant up"
   }
 }
-
+```
 
 ---
 
@@ -93,6 +96,7 @@ terraform init
 Y salió todo bien:
 
 ![Figura 3. Terraform init](assets/Captura3.png)
+**Figura 3. Terraform init**
 
 ---
 
@@ -112,6 +116,7 @@ terraform apply
 Y así sí que levantó la máquina y empezó todo el proceso:
 
 ![Figura 4. terraform apply con taint](assets/Captura4.png)
+**Figura 4. terraform apply con taint**
 
 ---
 
@@ -122,6 +127,7 @@ Y así sí que levantó la máquina y empezó todo el proceso:
 Aquí se ve cómo Ansible se encargó de todo: actualizaciones, Apache, HTML y comprobaciones. Todo sin fallos.
 
 ![Figura 5. Proceso de provisión con Ansible](assets/Captura5.png)
+**Figura 5. Proceso de provisión con Ansible**
 
 ---
 
@@ -139,13 +145,14 @@ Resultado:
 Ansible rocks
 ```
 
-✅ Misión cumplida.
+📅 Misión cumplida.
 
 ![Figura 6. curl dentro de la VM](assets/Captura6.png)
+**Figura 6. curl dentro de la VM**
 
 ---
 
-### 🧠 Verificación desde el playbook
+### 🧐 Verificación desde el playbook
 
 El playbook también hace un `curl` automático y muestra el resultado en pantalla:
 
@@ -158,6 +165,7 @@ El playbook también hace un `curl` automático y muestra el resultado en pantal
 Aquí se ve cómo lo saca al final:
 
 ![Figura 7. Resultado mostrado por Ansible](assets/Captura7.png)
+**Figura 7. Resultado mostrado por Ansible**
 
 ---
 
