@@ -11,13 +11,13 @@
 
 ## Instalación de Terraform
 
-Para no estar descargando y configurando Terraform a mano, me hice un script en PowerShell: [`instalar_terraform.ps1`](assets/instalar_terraform.ps1).
-Este script hace todo por ti:
+Para no estar descargando y configurando Terraform a mano, se creó un script en PowerShell: [`instalar_terraform.ps1`](assets/instalar_terraform.ps1).
+Este script hace todo automáticamente:
 
 * Crea una carpeta `C:\Terraform`.
 * Descarga Terraform desde la web oficial.
 * Lo descomprime.
-* Y lo mete en el PATH del sistema para que puedas usarlo desde cualquier terminal.
+* Y lo mete en el PATH del sistema para que se pueda usar desde cualquier terminal.
 
 Así de cómodo 😎
 
