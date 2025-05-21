@@ -30,7 +30,7 @@ Así de cómodo 😎
 
 Después de cerrar y volver a abrir PowerShell, ejecuté:
 
-```bash
+
 terraform -v
 
 
@@ -46,13 +46,13 @@ Y aquí se ve que está todo OK con la versión 1.8.1 instalada:
 
 Archivo de Terraform que ejecuta un simple `vagrant up`. Con eso arranca la VM y el resto lo hace Vagrant + Ansible.
 
-```hcl
+
 resource "null_resource" "provisionar_vm" {
   provisioner "local-exec" {
     command = "vagrant up"
   }
 }
-```
+
 
 ---
 
