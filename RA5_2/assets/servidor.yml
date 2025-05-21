@@ -1,0 +1,37 @@
+---
+- name: Configurar Ubuntu 22.04 con Apache y página web
+  hosts: all
+  become: yes
+  tasks:
+    - name: Actualizar paquetes
+      apt:
+        update_cache: yes
+
+    - name: Actualizar el sistema
+      apt:
+        upgrade: dist
+        autoremove: yes
+        autoclean: yes
+
+    - name: Instalar Apache
+      apt:
+        name: apache2
+        state: present
+
+    - name: Crear index.html con "Ansible rocks"
+      copy:
+        dest: /var/www/html/index.html
+        content: "Ansible rocks\n"
+
+    - name: Reiniciar Apache
+      service:
+        name: apache2
+        state: restarted
+
+    - name: Verificar contenido de la página
+      shell: curl http://localhost
+      register: resultado
+
+    - name: Mostrar salida del curl
+      debug:
+        var: resultado.stdout
