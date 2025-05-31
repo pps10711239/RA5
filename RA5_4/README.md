@@ -102,3 +102,52 @@ kubectl get pods
 
 Con estos pasos se completa el despliegue del clúster K3s en modo HA, con el servicio nginx en funcionamiento y monitorizado a través de K9s.
 
+## 4. Despliegue docker-compose en K3s y validación con K9s
+
+En esta sección se describe el proceso para desplegar un servicio docker-compose en K3s y su posterior validación utilizando K9s.
+
+### Preparación y despliegue de docker-compose
+
+1. Se crea el archivo `docker-compose.yml` que define dos servicios nginx expuestos por diferentes puertos:
+
+```yaml
+version: "3"
+services:
+  nginx1:
+    image: nginx
+    ports:
+      - "8081:80"
+  nginx2:
+    image: nginx
+    ports:
+      - "8082:80"
+```
+
+![docker-compose.yml](assets/Captura12.png)
+
+2. Para desplegar este archivo en K3s, se utiliza la herramienta `kompose`, que convierte los archivos docker-compose en manifiestos de Kubernetes. Los comandos utilizados son los siguientes:
+
+```bash
+kompose convert -f docker-compose.yml
+kubectl apply -f nginx1-service.yaml
+kubectl apply -f nginx2-service.yaml
+kubectl apply -f nginx1-deployment.yaml
+kubectl apply -f nginx2-deployment.yaml
+```
+
+Esto genera los recursos de Kubernetes (services y deployments) y los aplica al clúster.
+
+3. Para verificar que los pods y servicios están correctamente desplegados, se usan los siguientes comandos:
+
+```bash
+kubectl get pods
+kubectl get svc
+```
+
+### Validación con K9s
+
+4. Utilizando K9s se comprueba el estado de los pods y servicios generados a partir del docker-compose. Se observa que ambos pods nginx están en estado "Running" y correctamente distribuidos en el clúster. Además, se pueden observar detalles como IPs asignadas, nodos, uso de CPU y memoria.
+
+![Estado pods docker-compose](assets/Captura13.png)
+
+Con estos pasos, se ha completado el despliegue y la validación del docker-compose en K3s mediante K9s.
