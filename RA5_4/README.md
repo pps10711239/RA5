@@ -2,10 +2,10 @@
 
 ## Índice
 
-1. Introducción
-2. Despliegue K3s Single-Node y Nginx
-3. Despliegue K3s HA y Nginx
-4. Despliegue docker-compose en K3s y validación con K9s
+1. [Introducción](#introducción)
+2. [Despliegue K3s Single-Node y Nginx](#2-despliegue-k3s-single-node-y-nginx)
+3. [Despliegue K3s HA y Nginx](#3-despliegue-k3s-ha-y-nginx)
+4. [Despliegue docker-compose en K3s y validación con K9s](#4-despliegue-docker-compose-en-k3s-y-validación-con-k9s)
 
 ## Introducción
 
