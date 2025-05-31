@@ -46,14 +46,14 @@ kubectl get svc
 
 4. Utilizando la herramienta K9s, accedemos al clúster y navegamos por los pods y servicios desplegados. Aquí podemos ver información sobre el estado de los pods, el uso de recursos y la IP asignada.
 
-![Validación con K9s](assets/Captura4.png)
+
 ![Estado K9s](assets/Captura5.png)
 
 ### Prueba de acceso a nginx
 
 5. Finalmente, se verifica el acceso al servicio nginx desde un navegador, usando la IP y el puerto expuestos por el servicio.
 
-![Acceso nginx](assets/Captura5.png)
+![Validación con K9s](assets/Captura4.png)
 
 Con estos pasos, se ha completado la instalación de K3s en modo single-node, el despliegue de nginx con dos réplicas y la validación mediante K9s y acceso web.
 
