@@ -57,3 +57,48 @@ kubectl get svc
 
 Con estos pasos, se ha completado la instalación de K3s en modo single-node, el despliegue de nginx con dos réplicas y la validación mediante K9s y acceso web.
 
+## 3. Despliegue K3s HA y Nginx
+
+En este apartado se describe el proceso para la instalación, configuración y validación de un clúster K3s en modo alta disponibilidad (HA) y el despliegue de un servicio nginx con dos réplicas, utilizando K9s para monitorizar el estado del clúster y los recursos.
+
+### Instalación y configuración de K3s en modo HA
+
+1. Se instalan múltiples nodos master que conforman el plano de control del clúster K3s en modo HA. Durante el proceso, se configuran los tokens de autenticación, se establece la comunicación entre los nodos y se despliega el plano de control. Los comandos utilizados permiten unir los nodos al clúster y verificar su estado:
+
+```bash
+sudo kubectl get nodes
+```
+
+![Instalación K3s HA](assets/Captura6.png)
+
+### Configuración y unión de nodos
+
+2. Los nodos adicionales se añaden al clúster utilizando el token generado en el nodo inicial y el comando de instalación correspondiente. La correcta unión de los nodos se comprueba mediante:
+
+```bash
+sudo kubectl get nodes
+```
+
+![Unión nodos](assets/Captura7.png)
+![Token de unión](assets/Captura8.png)
+
+### Despliegue del servicio nginx en modo HA
+
+3. Se aplica el deployment de nginx y se comprueba que los pods estén en estado "Running" y distribuidos entre los nodos master del clúster. Los comandos utilizados son:
+
+```bash
+kubectl apply -f nginx-deploy.yaml
+kubectl get pods
+```
+
+![Despliegue nginx HA](assets/Captura9.png)
+![Estado pods nginx HA](assets/Captura10.png)
+
+### Validación con K9s
+
+4. Con la herramienta K9s se realiza el monitoreo del clúster, validando el estado de los pods, los recursos y las IPs de los nodos.
+
+![Validación con K9s](assets/Captura11.png)
+
+Con estos pasos se completa el despliegue del clúster K3s en modo HA, con el servicio nginx en funcionamiento y monitorizado a través de K9s.
+
